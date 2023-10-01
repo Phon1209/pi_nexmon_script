@@ -1,7 +1,5 @@
 #!/bin/bash
-
-echo $#
-if [$# -ne 4]
+if [ $# -ne 4 ]
   then
     echo "Usage: ./setup.sh <folderName> <description> <timeSlice> <fileCount>"
     exit 1
@@ -9,7 +7,7 @@ fi
 
 folder=$1
 description=$2
-slice=$3
+timeSlice=$3
 filecount=$4
 
 d=`(date '+%Y-%m-%d-%H-%M-%s')`
