@@ -7,4 +7,6 @@ devices = json.load(f)
 f.close()
 
 for device in devices:
-  subprocess.call(["scp", "setup.sh", "capture.sh", f"{device['user']}@{device['ip']}:/"])
+  print(" ".join(["scp", "setup.sh", "capture.sh", f"{device['user']}@{device['ip']}:./"]))
+
+  subprocess.call(["scp", "setup.sh", "capture.sh", f"{device['user']}@{device['ip']}:./"])
