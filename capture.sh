@@ -3,14 +3,14 @@
 echo $#
 if [$# -ne 4]
   then
-    echo "Usage: ./setup.sh <folderName> <description> <timeSlice> <totalCaptureTime>"
+    echo "Usage: ./setup.sh <folderName> <description> <timeSlice> <fileCount>"
     exit 1
 fi
 
 folder=$1
 description=$2
 slice=$3
-total=$4
+filecount=$4
 
 d=`(date '+%Y-%m-%d-%H-%M-%s')`
 fname=$folder-$d
@@ -18,6 +18,7 @@ fname=$folder-$d
 rm -rf $fname
 mkdir $fname
 
-sudo tcpdump -i wlan0 dst port 5500 -vv -w ./$fname/out.pcap
+echo $description > ./$fname/README.md
+sudo tcpdump -i wlan0 dst port 5500 -vv -w ./$fname/out.pcap -G $timeSlice -W $filecount
 
 echo "Done"
