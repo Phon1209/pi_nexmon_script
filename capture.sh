@@ -10,8 +10,8 @@ description=$2
 timeSlice=$3
 filecount=$4
 
-d=`(date '+%Y-%m-%d-%H-%M-%s')`
-fname=$folder-$d
+# d=`(date '+%Y-%m-%d-%H-%M-%s')`
+fname=$folder
 
 rm -rf $fname
 mkdir $fname

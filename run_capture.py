@@ -1,4 +1,5 @@
 import json
+from socket import timeout
 import subprocess
 
 f = open('devices.json')
@@ -6,6 +7,7 @@ f = open('devices.json')
 devices = json.load(f)
 f.close()
 
+# MI: 64:64:4A:BB:40:20
 
 folder = input("folder name: ")
 description = input("description: ")
@@ -22,8 +24,9 @@ run_command = f"sudo bash ./capture.sh {folder} '{description}' {time_slice} {fi
 for device in devices:
   ip = f"{device['user']}@{device['ip']}"
 
-  print("Executing: ", " ".join(["ssh", ip, setup_command]))
   subprocess.call(["ssh", ip, setup_command], shell=True)
 
-  print("Executing: ", " ".join(["ssh", ip, run_command]))
+for device in devices:
+  ip = f"{device['user']}@{device['ip']}"
+
   subprocess.Popen(["ssh", ip, run_command], shell=True)
