@@ -1,32 +1,38 @@
 import json
+from multiprocessing.connection import wait
 from socket import timeout
 import subprocess
+from time import sleep
 
 f = open('devices.json')
- 
+
 devices = json.load(f)
 f.close()
 
-# MI: 64:64:4A:BB:40:20
 
 folder = input("folder name: ")
 description = input("description: ")
-channel = input("WiFi channel: ")
-width = input("WiFi Frequency: ")
-mac = input("Mac Address: ")
-time_slice = input("time per file(second): ")
-file_count = input("file count: ")
+beacon = input("Only beacon frame(Y/n): ")
+time_slice = input("Capture time: ")
 
-
-setup_command = f"sudo bash ./setup.sh {channel} {width} {mac}"
-run_command = f"sudo bash ./capture.sh {folder} '{description}' {time_slice} {file_count}"
+beaconBool = (beacon.capitalize() == "Y")
+run_command = f"sudo bash ./capture.sh {folder} '{description}' {time_slice} 1"
 
 for device in devices:
-  ip = f"{device['user']}@{device['ip']}"
+    print(f"device: {device['user']}")
+    print(
+        f"Reading at channel {device['channel']}/{device['frequency']} on '{device['mac_address']}'")
 
-  subprocess.call(["ssh", ip, setup_command], shell=True)
+input("Confirm the information above?")
 
 for device in devices:
-  ip = f"{device['user']}@{device['ip']}"
+    ip = f"{device['user']}@{device['ip']}"
 
-  subprocess.Popen(["ssh", ip, run_command], shell=True)
+    setup_command = f"sudo bash ./setup.sh {device['channel']} {device['width']} {device['mac_address']}"
+    subprocess.Popen(["ssh", ip, setup_command], shell=True)
+
+sleep(5)
+for device in devices:
+    ip = f"{device['user']}@{device['ip']}"
+
+    subprocess.Popen(["ssh", ip, run_command], shell=True)
