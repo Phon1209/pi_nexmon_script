@@ -37,7 +37,7 @@ for device in devices:
         setup_command = f"sudo bash ./setup.sh {device['channel']} {device['frequency']} {device['mac_address']}"
 
     setup_processes.append(subprocess.Popen(
-        ["ssh", ip, setup_command], shell=True))
+        ["ssh", ip, setup_command]))
 
 # Wait for all setup subprocesses to finish
 for setup_process in setup_processes:
