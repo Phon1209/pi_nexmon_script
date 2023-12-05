@@ -27,7 +27,7 @@ for device in devices:
 
 input("Confirm the information above?")
 
-setup_processes = []
+# setup_processes = []
 for device in devices:
     ip = f"{device['user']}@{device['ip']}"
 
@@ -36,12 +36,13 @@ for device in devices:
     else:
         setup_command = f"sudo bash ./setup.sh {device['channel']} {device['frequency']} {device['mac_address']}"
 
-    setup_processes.append(subprocess.Popen(
-        ["ssh", ip, setup_command]))
+    print(f"\ndevice: {device['name']}: {device['ip']}")
+    subprocess.run(
+        ["ssh", ip, setup_command])
 
 # Wait for all setup subprocesses to finish
-for setup_process in setup_processes:
-    setup_process.wait()
+# for setup_process in setup_processes:
+#     setup_process.wait()
 
 input("Press any key to start the command...")
 for device in devices:
