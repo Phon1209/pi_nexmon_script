@@ -2,10 +2,28 @@
   {
     "user": "pi",
     "ip": "192.168.0.102",
-    "mac_address": "",
-    "channel": 34,
+    "mac_address": "64:64:4A:BB:40:20",
+    "channel": 44,
     "frequency": 80,
     "name": "pi2",
     "filter": "0x80"
+  },
+  {
+    "user": "pi",
+    "ip": "192.168.0.101",
+    "mac_address": "64:64:4A:BB:40:20",
+    "channel": 44,
+    "frequency": 80,
+    "name": "pi1",
+    "filter": ""
+  },
+  {
+    "user": "phon1209",
+    "ip": "192.168.0.100",
+    "mac_address": "64:64:4A:BB:40:20",
+    "channel": 44,
+    "frequency": 80,
+    "name": "phon1209",
+    "filter": ""
   }
 ]

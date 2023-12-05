@@ -1,0 +1,47 @@
+[
+  {
+    "user": "pi",
+    "ip": "192.168.0.101",
+    "mac_address": "FC:5B:39:E4:11:3F",
+    "channel": 100,
+    "frequency": 80,
+    "name": "1-UL-113F",
+    "filter": ""
+  },
+  {
+    "user": "pi",
+    "ip": "192.168.0.102",
+    "mac_address": "FC:5B:39:E4:11:3F",
+    "channel": 100,
+    "frequency": 80,
+    "name": "2-UR-113F",
+    "filter": ""
+  },
+  {
+    "user": "pi",
+    "ip": "192.168.0.103",
+    "mac_address": "FC:5B:39:E4:11:3F",
+    "channel": 100,
+    "frequency": 80,
+    "name": "3-DR-113F",
+    "filter": ""
+  },
+  {
+    "user": "pi",
+    "ip": "192.168.0.105",
+    "mac_address": "FC:5B:39:E4:11:3F",
+    "channel": 100,
+    "frequency": 80,
+    "name": "5-DL-113F",
+    "filter": ""
+  },
+  {
+    "user": "pi",
+    "ip": "192.168.0.107",
+    "mac_address": "FC:5B:39:E4:11:3F",
+    "channel": 100,
+    "frequency": 80,
+    "name": "7-BB-113F",
+    "filter": "0x80"
+  }
+]

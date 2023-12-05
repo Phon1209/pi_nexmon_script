@@ -10,7 +10,8 @@ f.close()
 # destination_location = "C:\Users\Phon1209\Desktop\Work\CSI_data\channel_test"
 
 files = [
-    "test_load2"
+    "q",
+    "q2"
 ]
 
 
